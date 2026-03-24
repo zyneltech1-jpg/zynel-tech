@@ -669,7 +669,7 @@ img {
     }
 }
 
-@media (max-width: 768px;) {
+@media (max-width: 768px) {
     .service-container {
         display: grid;
         grid-template-columns: 1fr;
