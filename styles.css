@@ -400,6 +400,8 @@ body {
 
 .contact-form input,
 .contact-form textarea {
+    position: relative;
+    z-index: 10;
     width: 100%;
     padding: 14px;
     border: none;
@@ -412,6 +414,8 @@ body {
 
 .contact-form button {
     padding: 14px;
+    position: relative;
+    z-index: 20;
     border: none;
     border-radius: 10px;
     background: linear-gradient(135deg, #3b82fb, #2563eb);
@@ -419,8 +423,10 @@ body {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+    -web-appearance: none;
     transition: 0.3s;
     width: 100%;
+    touch-action: manipulation;
 }
 
 .contact-form button:hover {
