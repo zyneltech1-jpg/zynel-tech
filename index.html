@@ -204,11 +204,11 @@
                 <p>📍 Nigeria</p>
             </div>
 
-            <form action="https://formspree.io/f/mkoqdryd" method="POST" class="contact-form">
+            <form action="https://formspree.io/f/mkoqdryd" method="POST" class="contact-form" id="contact-form">
                 <input type="text" name="name" id="name" placeholder="Your Name" required>
                 <input type="email" name="email" id="email" placeholder="Your Email" required>
                 <textarea name="message" id="message" placeholder="Your Message" rows="6" required></textarea>
-                <button type="submit">Send Message Via Email</button>
+                <button type="submit">Send Message</button>
             </form>
         </div>
     </section>
@@ -237,6 +237,49 @@ window.addEventListener('scroll', () => {
             card.style.transform = "translateY(0)";
         }
     });
+});
+</script>
+
+<script>
+const form = document.getElementById("contact-form");
+const submitBtn = document.getElementById("submit-btn");
+const formStatus = document.getElementById("form-status");
+
+form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    formStatus.className = "";
+    formStatus.style.display = "none";
+    formStatus.textContent = "";
+
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: {
+                "Accept": "application/json"
+            }
+        });
+
+        if (response.ok) {
+            formStatus.textContent = "✅ Message sent successfully. I’ll get back to you shortly.";
+            formStatus.classList.add("success");
+            form.reset();
+        } else {
+            formStatus.textContent = "❌ Something went wrong. Please try again.";
+            formStatus.classList.add("error");
+        }
+    } catch (error) {
+        formStatus.textContent = "❌ Network error. Please check your connection and try again.";
+        formStatus.classList.add("error");
+    }
+
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Send Message";
 });
 </script>
 
