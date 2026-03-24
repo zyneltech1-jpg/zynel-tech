@@ -401,7 +401,7 @@ body {
 .contact-form input,
 .contact-form textarea {
     position: relative;
-    z-index: 10;
+    z-index: ;
     width: 100%;
     padding: 14px;
     border: none;
@@ -594,3 +594,77 @@ body {
     }
 }
 
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 40px 20px;
+        gap: 30px;
+    }
+
+    .hero-text,
+    .hero-image,
+    .about-container,
+    .contact-container,
+    .contact-form {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero-text h1 {
+        font-size: 42px;
+        line-height: 1.2;
+        word-break: break-word;
+    }
+
+    .hero-description {
+        font-size: 18px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .hero-image img {
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
